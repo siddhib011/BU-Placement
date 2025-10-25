@@ -1,0 +1,88 @@
+/* src/pages/AuthLayout.css */
+
+/* --- Base Layout --- */
+.auth-split-container {
+    display: flex;
+    min-height: calc(100vh - 64px); /* Full viewport height minus approx Navbar height */
+    overflow: hidden;
+    margin-top: -20px; /* Counteract default padding from App.js if needed */
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px; /* Extend fully */
+}
+
+/* --- Left Panel (Static/Branding) --- */
+.auth-left-panel {
+    flex: 0 0 450px; /* Fixed width */
+    background-color: #dc3545; /* Red */
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes instructions down */
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- LOGO ADJUSTMENTS --- */
+.auth-left-panel .logo-area img {
+    width: 100px; /* INCREASED logo size */
+    height: 100px; /* INCREASED logo size */
+    margin-right: 15px;
+    vertical-align: middle;
+    margin-bottom: 10px; /* Add some space below logo */
+}
+
+/* --- TEXT ADJUSTMENTS --- */
+.auth-left-panel .branding-content .MuiTypography-h5 { /* Target MUI Typography if used for "BU Placements" */
+    font-size: 1.5rem; /* DECREASED font size for "BU Placements" */
+    font-weight: 500; /* Adjusted weight */
+    margin-left: -15px; /* Adjust alignment if needed after logo size change */
+}
+
+.auth-left-panel .branding-content .MuiTypography-h4 { /* Target MUI Typography if used for "One stop portal..." */
+    font-size: 1.8rem; /* DECREASED font size */
+    font-weight: 600; /* Adjusted weight */
+    line-height: 1.3; /* Adjusted line spacing */
+    margin-top: 20px; /* Add space above this text */
+}
+
+.auth-left-panel .instructions {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    font-size: 0.85rem; /* DECREASED font size for instructions */
+    opacity: 0.8;
+}
+
+/* --- Right Panel (Form) --- */
+.auth-right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.auth-form-wrapper {
+    width: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 900px) {
+    .auth-left-panel {
+        display: none;
+    }
+    .auth-right-panel {
+        padding: 20px;
+    }
+    .auth-form-wrapper {
+        padding: 20px;
+    }
+}

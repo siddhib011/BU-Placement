@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const { verifyCaptcha } = require('../middleware/captchaMiddleware'); // <-- IMPORT CAPTCHA
 
-// Import all controller functions for user actions
+// Import controller functions
 const {
   registerUser,
   verifyUser,
@@ -11,32 +12,20 @@ const {
   resetPassword,
 } = require('../controllers/userController');
 
-// --- User Authentication Routes ---
+// Apply verifyCaptcha middleware before the controller function
 
 // @route   POST /api/users/register
-// @desc    Register a new user and send verification OTP
-router.post('/register', registerUser);
-
-// @route   POST /api/users/verify
-// @desc    Verify the user's email using the OTP
-router.post('/verify', verifyUser);
+router.post('/register', verifyCaptcha, registerUser); // <-- ADD verifyCaptcha
 
 // @route   POST /api/users/login
-// @desc    Authenticate user and get JWT token
-router.post('/login', loginUser);
+router.post('/login', verifyCaptcha, loginUser); // <-- ADD verifyCaptcha
 
-// --- Password Reset Routes ---
+// Reset Password Flow (Protect only the initial request)
+router.post('/forgot-password', verifyCaptcha, forgotPassword); // <-- ADD verifyCaptcha
 
-// @route   POST /api/users/forgot-password
-// @desc    Initiate password reset by sending an OTP
-router.post('/forgot-password', forgotPassword);
-
-// @route   POST /api/users/verify-reset-otp
-// @desc    Verify the OTP sent for password reset
+// Other routes remain the same (no captcha needed for verify or reset password after OTP is issued)
+router.post('/verify', verifyUser);
 router.post('/verify-reset-otp', verifyResetOtp);
-
-// @route   POST /api/users/reset-password
-// @desc    Set the new password after OTP verification
 router.post('/reset-password', resetPassword);
 
 module.exports = router;

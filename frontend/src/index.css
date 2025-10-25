@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333;
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff; /* White card */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.auth-container h1 {
+  color: #dc3545; /* Red heading */
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #dc3545; /* Red button */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.error-message {
+  color: #dc3545; /* Red error text */
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.success-message {
+  color: #28a745; /* Green success text */
+  margin-top: 15px;
+}
+
+.toggle-link {
+  margin-top: 20px;
+  font-size: 0.9em;
+}
+
+.toggle-link a {
+  color: #dc3545;
+  text-decoration: none;
+}
+
+.toggle-link a:hover {
+  text-decoration: underline;
+}

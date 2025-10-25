@@ -1,0 +1,58 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dc3545; /* Red background */
+  padding: 5px 30px; /* Slightly reduced vertical padding to keep height reasonable */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 64px; /* Ensure a minimum height */
+}
+
+.navbar-brand a {
+  color: white;
+  text-decoration: none;
+  /* font-size: 1.5em; */ /* Removed - letting span control size */
+  /* font-weight: bold; */ /* Removed - letting span control weight */
+  display: flex; /* Align logo and text */
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 50px; /* Increased logo size */
+  width: auto; /* Maintain aspect ratio */
+  margin-right: 15px; /* Increased space between logo and text */
+  vertical-align: middle; /* Helps alignment */
+}
+
+/* Style for the text next to the logo (wrap text in a <span> in Navbar.js) */
+.navbar-brand span {
+  font-size: 1.3rem; /* Slightly smaller than original brand text */
+  font-weight: 600; /* Medium bold */
+  letter-spacing: 0.5px;
+}
+
+.navbar-links a,
+.navbar-links button {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px; /* Slightly increased padding */
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Slight white overlay on hover */
+}
+
+.logout-button {
+  font-weight: bold;
+}

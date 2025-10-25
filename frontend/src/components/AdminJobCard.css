@@ -1,0 +1,39 @@
+.admin-job-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px; /* Spacing between cards */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.admin-job-card h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.admin-job-card h4 {
+  margin: 0 0 10px 0;
+  color: #555;
+  font-weight: normal;
+}
+
+.admin-job-card p {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.4;
+}
+
+.admin-job-card small {
+    color: #888;
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+/* MUI Buttons are styled by the library, but you can override */
+/* Example: Target MUI button specifically if needed */
+.admin-job-card .MuiButton-outlined {
+    text-transform: none; /* Prevent uppercase */
+}

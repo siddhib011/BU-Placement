@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const profileSchema = new mongoose.Schema({
-  user: {
+  user: { // Link to the User model (which has the email)
     type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: 'User',
@@ -11,7 +11,13 @@ const profileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // --- ADD THESE NEW FIELDS ---
+  // --- ADD Enrollment Number ---
+  enrollmentNumber: {
+    type: String,
+    required: true,
+    unique: true, // Assuming enrollment number should be unique
+  },
+  // --- END ---
   age: {
     type: Number,
     required: true,
@@ -19,13 +25,13 @@ const profileSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: true,
-    enum: ['Male', 'Female', 'Other'], // Only allows these values
+    enum: ['Male', 'Female', 'Other'],
   },
-  // --- END OF NEW FIELDS ---
-  email: {
-    type: String,
-    required: true,
-  },
+  // --- REMOVED EMAIL --- (We'll get it from the linked User)
+  // email: {
+  //   type: String,
+  //   required: true,
+  // },
   resumeURL: {
     type: String,
     required: true,
@@ -37,6 +43,8 @@ const profileSchema = new mongoose.Schema({
   gpa: {
     type: Number,
   },
+  // Add timestamps if you want them for the profile itself
+  // timestamps: true,
 });
 
 const Profile = mongoose.model('Profile', profileSchema);

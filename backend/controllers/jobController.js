@@ -85,23 +85,51 @@ const deleteJob = async (req, res) => {
       return res.status(404).json({ message: 'Job not found' });
     }
 
-    // Optional: Check if the admin is the one who created the job
-    if (job.user.toString() !== req.user._id.toString()) {
-      return res.status(401).json({ message: 'Not authorized to delete this job' });
+    // --- AUTHORIZATION CHECK ---
+    // Allow deletion if:
+    // 1. The user is an admin AND they posted the job
+    // OR
+    // 2. The user is a placementcell member
+    const isAdminOwner = req.user.role === 'admin' && job.user.toString() === req.user._id.toString();
+    const isTPO = req.user.role === 'placementcell';
+
+    if (!isAdminOwner && !isTPO) {
+        console.log(`[deleteJob] Unauthorized attempt by user ${req.user._id} (role: ${req.user.role})`);
+        return res.status(401).json({ message: 'Not authorized to delete this job' });
     }
+    // --- END AUTHORIZATION CHECK ---
 
     await job.deleteOne();
+    console.log(`[deleteJob] Job ${req.params.id} deleted by user ${req.user._id}`);
     res.status(200).json({ message: 'Job removed' });
-  } catch (error)
-    {
-    res.status(500).json({ message: `Server Error: ${error.message}` });
+  } catch (error) {
+    console.error('[deleteJob] Controller Error:', error);
+    res.status(500).json({ message: `Server Error deleting job: ${error.message}` });
   }
 };
 
+// ... (existing imports and functions)
+
+// @desc    Get jobs posted by the logged-in admin/recruiter
+// @route   GET /api/jobs/myjobs
+// @access  Private/Admin
+const getMyJobs = async (req, res) => {
+  try {
+    // Find jobs where the 'user' field matches the logged-in user's ID
+    const jobs = await Job.find({ user: req.user._id });
+    res.status(200).json(jobs);
+  } catch (error) {
+    console.error('[getMyJobs] Error:', error);
+    res.status(500).json({ message: `Server Error fetching admin jobs: ${error.message}` });
+  }
+};
+
+// --- Add getMyJobs to module.exports ---
 module.exports = {
   getAllJobs,
   createJob,
   getJobById,
   updateJob,
   deleteJob,
+  getMyJobs, // <-- ADD THIS
 };

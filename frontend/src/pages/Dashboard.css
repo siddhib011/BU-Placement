@@ -1,0 +1,148 @@
+.dashboard-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.dashboard-container h1 {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s;
+}
+
+.job-card:hover {
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.job-card h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.job-card h4 {
+  margin: 0 0 10px 0;
+  color: #555;
+  font-weight: normal;
+}
+
+.job-card p {
+  font-size: 0.9em;
+  color: #666;
+  line-height: 1.4;
+}
+
+.job-card small {
+    color: #888;
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+.apply-button {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.apply-button:hover {
+  background-color: #c82333;
+}
+
+/* Inherit general error/success message styles */
+.error-message { color: #dc3545; margin-top: 15px; font-size: 0.9em; text-align: center; }
+.success-message { color: #28a745; margin-top: 15px; text-align: center; }
+
+/* ... (existing styles) ... */
+
+/* --- General Dashboard Styling --- */
+.dashboard-container {
+  max-width: 1100px; /* Wider for dashboards */
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.dashboard-container h1 {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.dashboard-section {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-section h2 {
+  margin-top: 0;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* --- Profile Reminder Specific Styles --- */
+.profile-reminder {
+    border-left: 5px solid #ffc107; /* Yellow border */
+    background-color: #fff9e6; /* Light yellow background */
+}
+
+.profile-reminder h2 {
+    color: #b8860b; /* Darker yellow */
+    border-bottom: none;
+}
+
+.profile-link-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+     transition: background-color 0.2s;
+}
+.profile-link-button:hover {
+     background-color: #c82333;
+}
+
+/* --- General Action Button --- */
+.action-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Example blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+   transition: background-color 0.2s;
+}
+.action-button:hover {
+   background-color: #0056b3;
+}
